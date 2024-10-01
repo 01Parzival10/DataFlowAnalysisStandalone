@@ -11,6 +11,8 @@ Setup:
 - Clone https://github.com/DataFlowAnalysis/Converter and checkout annotations
 
 - Clone this repository
+
+- Add eclipse staging updatesite
  
 - Install Jetty Bundles From Eclipse Updatesite https://download.eclipse.org/oomph/jetty/release/11.0.24
 
