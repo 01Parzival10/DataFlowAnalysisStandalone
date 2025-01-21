@@ -13,7 +13,6 @@ import org.dataflowanalysis.analysis.dfd.DFDDataFlowAnalysisBuilder;
 import org.dataflowanalysis.analysis.dfd.resource.DFDModelResourceProvider;
 import org.dataflowanalysis.analysis.dfd.simple.DFDSimpleTransposeFlowGraphFinder;
 import org.dataflowanalysis.analysis.dsl.AnalysisConstraint;
-import org.dataflowanalysis.analysis.dsl.constraint.ConstraintDSL;
 import org.dataflowanalysis.analysis.dsl.result.DSLResult;
 import org.dataflowanalysis.analysis.utils.StringView;
 import org.dataflowanalysis.converter.DataFlowDiagramAndDictionary;
@@ -94,6 +93,7 @@ public class Converter {
 	        	if (webEditorDfd.constraints() != null && !webEditorDfd.constraints().isEmpty()) {
 	        		var constraints = parseConstraints(webEditorDfd);
 	        		var violations = runAnalysis(dd, constraints);
+	        		newJson.constraints().addAll(webEditorDfd.constraints()); //Reapply constraints
 	        		return annotateViolations(newJson, violations);
 	        	}
 	        	return newJson;
@@ -128,8 +128,7 @@ public class Converter {
 	    private static List<AnalysisConstraint> parseConstraints(WebEditorDfd webEditorDfd) {
 	    	return webEditorDfd.constraints().stream().map(it -> {
 	    		return AnalysisConstraint.fromString(new StringView(it.constraint())).getResult();
-	    	}).toList();
-	    	
+	    	}).toList();	    	
 	    }
 	    
 	    private static List<DSLResult> runAnalysis(DataFlowDiagramAndDictionary dfd, List<AnalysisConstraint> constraints) {

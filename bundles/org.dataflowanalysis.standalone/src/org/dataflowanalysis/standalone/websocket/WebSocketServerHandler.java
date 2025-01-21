@@ -76,6 +76,7 @@ public class WebSocketServerHandler extends WebSocketAdapter
     }
     
     private String handleIncomingMessage(int id, String message) {
+    	System.out.println(message);
     	System.out.println("Message received");
     	var objectMapper = new ObjectMapper();
     	WebEditorDfd newJson = null;
