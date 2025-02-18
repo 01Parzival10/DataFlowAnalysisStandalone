@@ -38,6 +38,12 @@ public class Converter {
 
     private static final Logger logger = Logger.getLogger(AnalysisConstraint.class);
 	
+    	/**
+    	 * Convertes a DFD from the Ecore to the WebEditor Json representation
+    	 * @param dfd File where DFD is saved
+    	 * @param dd File where DD is saved
+    	 * @return Created WebEditor Json representation
+    	 */
 	 	public static WebEditorDfd convertDFD(File dfd, File dd){
 	    	try {
 		    	var converter = new DataFlowDiagramConverter();
@@ -67,7 +73,13 @@ public class Converter {
 	    }
 	    
 	    
-	    
+	    /**
+	     * Convertes a Model in PCM representation into a WebEditor Json represenation
+	     * @param usageModelFile File where Usage Model is saved
+	     * @param allocationModelFile File where Allocation Model is saved
+	     * @param nodeCharacteristicsFile File where Node Characteristics Model is saved
+	     * @return Created WebEditor Json representation
+	     */
 	    public static WebEditorDfd convertPCM(File usageModelFile, File allocationModelFile, File nodeCharacteristicsFile){
 	    	try {
 	    		var converter = new PCMConverter();
@@ -83,7 +95,11 @@ public class Converter {
 	    	return null;
 	    }
 	    
-	    
+	    /**
+	     * Analyzes a Model in WebEditor Json Representation and returns the analyzed Model
+	     * @param webEditorDfd Model to be analyzed
+	     * @return Analyzed Model
+	     */
 	    public static WebEditorDfd analyzeAnnotate(WebEditorDfd webEditorDfd) {
 	    	try {
 	    		var webEditorconverter = new WebEditorConverter();
@@ -103,6 +119,12 @@ public class Converter {
 	    	return null;
 	    }
 	    
+	    /**
+	     * Converts a model in WebEditor Json representation into the DFD metamodel representation and return the DFD files as a concatenated string
+	     * @param webEditorDfd model in WebEditor Json representation to be converted
+	     * @param name Name of the files to be created
+	     * @return Concatenation of DFD and DD files as string
+	     */
 	    public static String convertToDFDandStringify(WebEditorDfd webEditorDfd, String name) {
 	    	try {
 	    		var converter = new WebEditorConverter();
@@ -171,7 +193,7 @@ public class Converter {
 	    	for (Child child : webEditorDfd.model().children()) {
 	    		if (nodeToAnnotationMap.containsKey(child)) {
 	    			StringBuilder builder = new StringBuilder();
-	    			builder.append(child.annotation().toString());
+	    			builder.append(child.annotation().message().toString());
 	    			if (builder.toString() != "") builder.append("\n");
 	    			builder.append(nodeToAnnotationMap.get(child));
 	    			
