@@ -33,4 +33,4 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=01Parzival10_GDPRConverter -Dsonar.sources=bundles/org.dataflowanalysis.standalone/src
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=01Parzival10_GDPRConverter -Dsonar.sources=bundles/org.dataflowanalysis.standalone/src -Dsonar.projectBaseDir=/
