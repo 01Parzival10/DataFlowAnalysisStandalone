@@ -9,11 +9,8 @@
  <properties>
 	<tycho.version>2.7.5</tycho.version>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<sonar.organization>01parzival10</sonar.organization>
  </properties>
-
-<properties>
-  <sonar.organization>01parzival10</sonar.organization>
-</properties>
  
  <dependencies>
  	<dependency>
