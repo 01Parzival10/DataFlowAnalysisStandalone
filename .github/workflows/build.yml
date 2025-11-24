@@ -34,9 +34,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-    	  mvn -B -pl bundles/org.dataflowanalysis.standalone \
-          -am \
-          verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-          -Dsonar.projectKey=01Parzival10_GDPRConverter \
-          -Dsonar.sources=src \
-          -Dsonar.java.binaries=.
+          mvn -B -pl bundles/org.dataflowanalysis.standalone \
+            -am \
+            verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.projectKey=01Parzival10_GDPRConverter \
+            -Dsonar.sources=src \
+            -Dsonar.java.binaries=.
