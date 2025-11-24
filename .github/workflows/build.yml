@@ -37,5 +37,5 @@ jobs:
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:5.3.0.6276:sonar \
             -Dsonar.projectKey=01Parzival10_GDPRConverter \
             -Dsonar.sources=. \
-            -Dsonar.inclusions=bundles/org.dataflowanalysis.standalone/src/** \
+            -Dsonar.inclusions=src/** \
             -Dsonar.scm.exclusions.disabled=true
