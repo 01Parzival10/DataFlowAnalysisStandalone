@@ -38,4 +38,4 @@ jobs:
             -Dsonar.projectKey=01Parzival10_GDPRConverter \
             -Dsonar.sources=. \
             -Dsonar.inclusions=src/** \
-            -Dsonar.scm.exclusions.disabled=true
+            -Dsonar.java.binaries=.
